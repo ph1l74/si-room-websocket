@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI-GM WebSocket Beta</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.css" integrity="sha256-8BrtNNtStED9syS9F+xXeP815KGv6ELiCfJFQmGi1Bg=" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css"
+        integrity="sha256-qS+snwBgqr+iFVpBB58C9UCxKFhyL03YHpZfdNUhSEw=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.css.map"
+        integrity="undefined" crossorigin="anonymous" />
+    <style>
+        button, .playersArea {
+            margin: 40px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero is-light is-bold is-fullheight">
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div id="playersArea">
+                </div>
+                <button class="button is-large is-fullwidth is-danger is-rounded" id="startTimer" onclick="startTimer()">Запустить
+                    таймер</button>
+                <button class="button is-large is-fullwidth is-danger is-rounded" id="stopTimer" onclick="stopTimer()">Остановить
+                    таймер</button>
+            </div>
+        </div>
+
+        <script src="gm.js"></script>
+</body>
+
+</html>

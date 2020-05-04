@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI-Room WebSocket Beta</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.css" integrity="sha256-8BrtNNtStED9syS9F+xXeP815KGv6ELiCfJFQmGi1Bg=" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css"
+        integrity="sha256-qS+snwBgqr+iFVpBB58C9UCxKFhyL03YHpZfdNUhSEw=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.css.map"
+        integrity="undefined" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="hero is-light is-bold is-fullheight">
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div id="playersArea">
+                </div>
+                <div class="text">
+                    <h1 class="is-size-1">
+                        Ваше время: <span id="time"></span>
+                    </h1>
+                </div>
+                <div class="name-field">
+                    <div class="control">
+                        <input class="input is-large" type="text" placeholder="Введите ваше имя" id="inputName">
+                    </div>
+                </div>
+                <button class="button is-large is-fullwidth is-danger is-rounded" id="btn"></button>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+</body>
+
+</html>
