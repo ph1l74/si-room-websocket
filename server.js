@@ -1,23 +1,23 @@
 const http = require('http');
 const static = require('node-static');
-var WebSocketServer = new require('ws');
-
+const WebSocketServer = new require('ws');
+var PORT = process.env.PORT || 5000
 
 // подключенные клиенты
-var clients = {};
+let clients = {};
 
 // WebSocket-сервер на порту 8081
-var webSocketServer = new WebSocketServer.Server({ port: 8081 });
+const webSocketServer = new WebSocketServer.Server({ port: 8081 });
 webSocketServer.on('connection', function (ws) {
 
-  var id = Math.random();
+  const id = Math.random();
   clients[id] = ws;
   console.log("новое соединение " + id);
 
   ws.on('message', function (message) {
     console.log('получено сообщение ' + message);
 
-    for (var key in clients) {
+    for (const key in clients) {
       clients[key].send(message);
     }
   });
@@ -36,7 +36,7 @@ http.createServer(function (req, res) {
 
   fileServer.serve(req, res);
 
-}).listen(8080);
+}).listen(PORT);
 
 console.log("Сервер запущен на портах 8080, 8081");
 
