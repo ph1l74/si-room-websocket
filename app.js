@@ -1,5 +1,5 @@
 const CHAR_CTRL = 17;
-const socket = new WebSocket('ws://0.0.0.0:8081');
+const socket = new WebSocket('ws://vigorous-curie-c2fd6a.netlify.app:8081');
 const btn = document.getElementById('btn');
 let timerSet = false;
 let startDate, endDate;
