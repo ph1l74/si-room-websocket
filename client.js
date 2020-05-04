@@ -1,5 +1,6 @@
 const CHAR_CTRL = 17;
-const socket = new WebSocket('ws://0.0.0.0:8081');
+var HOST = location.origin.replace(/^http/, 'ws')
+const socket = new WebSocket(HOST);
 const btn = document.getElementById('btn');
 let timerSet = false;
 let startDate, endDate;
@@ -33,7 +34,6 @@ const writeYourTime = (time) => {
 }
 
 socket.onmessage = event => {
-    console.log(event.data);
     let data = JSON.parse(event.data);
     if (data.playerStats) {
         writePlayerStats(data.playerStats);
@@ -79,7 +79,6 @@ const btnPressHandler = (timerStatus) => {
         writeYourTime(playerTime);
         const playerStats = { name: playerName, time: playerTime };
         const msg = JSON.stringify({ playerStats: playerStats, timerSet: 'stop' })
-        console.log(msg);
         socket.send(msg);
     }
 }

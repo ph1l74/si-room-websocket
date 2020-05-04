@@ -1,5 +1,6 @@
 const CHAR_RETURN = 13;
-const socket = new WebSocket('wss://0.0.0.0:8081')
+var HOST = location.origin.replace(/^http/, 'ws')
+const socket = new WebSocket(HOST);
 const playersArea = document.getElementById('playersArea');
 
 const writePlayerStats = playerStats => {
@@ -13,13 +14,19 @@ const clearPlayersArea = () => {
 }
 
 const startTimer = () => {
-    const msg = JSON.stringify({timerSet: 'start'});
-    console.log(msg);
+    clearPlayersArea();
+    const msg = JSON.stringify({ timerSet: 'start' });
     socket.send(msg);
 }
 
 const stopTimer = () => {
-    const msg = JSON.stringify({timerSet: 'stop'});
-    console.log(msg);
+    const msg = JSON.stringify({ timerSet: 'stop' });
     socket.send(msg);
+}
+
+socket.onmessage = event => {
+    let data = JSON.parse(event.data);
+    if (data.playerStats) {
+        writePlayerStats(data.playerStats);
+    }
 }
