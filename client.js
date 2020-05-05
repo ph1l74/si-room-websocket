@@ -1,6 +1,6 @@
 const CHAR_CTRL = 17;
 var HOST = location.origin.replace(/^http/, 'ws')
-const socket = new WebSocket(HOST);
+let socket = new WebSocket(HOST);
 const btn = document.getElementById('btn');
 let timerSet = false;
 let startDate, endDate;
