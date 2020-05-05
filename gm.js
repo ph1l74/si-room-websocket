@@ -1,6 +1,6 @@
 const CHAR_RETURN = 13;
 var HOST = location.origin.replace(/^http/, 'ws')
-const socket = new WebSocket(HOST);
+let socket = new WebSocket(HOST);
 const playersArea = document.getElementById('playersArea');
 
 const writePlayerStats = playerStats => {
@@ -29,4 +29,12 @@ socket.onmessage = event => {
     if (data.playerStats) {
         writePlayerStats(data.playerStats);
     }
+}
+
+const openSocket = () => {
+    socket = new WebSocket(HOST);
+}
+
+socket.onclose = () => {
+    setTimeout(openSocket, 1000);
 }

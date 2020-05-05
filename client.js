@@ -93,3 +93,11 @@ btn.addEventListener('click', e => {
     btnPressHandler(timerSet);
 })
 
+
+const openSocket = () => {
+    socket = new WebSocket(HOST);
+}
+
+socket.onclose = () => {
+    setTimeout(openSocket, 1000);
+}
